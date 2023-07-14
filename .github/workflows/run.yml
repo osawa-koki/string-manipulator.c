@@ -1,0 +1,21 @@
+name: Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup C-lang
+        run: sudo apt update -y && sudo apt install gcc make cmake -y
+      - name: Build
+        run: |
+          cmake -S . -B build
+          cmake --build build
+      - name: Run
+        run: ./build/src/a.out
