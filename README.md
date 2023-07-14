@@ -14,3 +14,10 @@ cmake --build build
 # 実行
 ./build/src/a.out
 ```
+
+## Dockerでの実行方法
+
+```shell
+docker build -t string-manipulator-c .
+docker run -it --rm string-manipulator-c
+```
